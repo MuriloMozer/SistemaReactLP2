@@ -1,6 +1,6 @@
 import Pagina from "../Templates/Pagina";
 
-export default function telaMenu(props){
+export default function TelaMenu(props){
     return(
         <Pagina/>
     )

@@ -1,8 +1,9 @@
 import TelaCadastroCliente from './Telas/telaCadastroCliente';
 import TelaCadastroProduto from './Telas/telaCadastroProduto';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import telaMenu from './Telas/telaMenu';
-import tela404 from './Telas/tela404';
+import TelaMenu from './Telas/telaMenu';
+import Tela404 from './Telas/tela404';
+
 function App() {
   return (
     <div className="App">
@@ -16,8 +17,8 @@ function App() {
           {
             // .....demais telas de cadastro
           }
-          <Route path='/' element={<telaMenu/>}/>
-          <Route path='*' element={<tela404/>}/>
+          <Route path='/' element={<TelaMenu/>}/>
+          <Route path='*' element={<Tela404/>}/>
         </Routes>
       </BrowserRouter>
       </div>

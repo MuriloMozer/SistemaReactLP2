@@ -1,7 +1,7 @@
 import { Alert, Container } from "react-bootstrap";
 import Pagina from "../Templates/Pagina";
 
-export default function tela404(props){
+export default function Tela404(props){
     return(
         <Container>
             <Pagina>
