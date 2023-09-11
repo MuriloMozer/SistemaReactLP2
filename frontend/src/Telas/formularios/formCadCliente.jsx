@@ -165,7 +165,7 @@ export default function FormCadCliente(props){
                     <Col md={6} offset={5}>
                         <Button type="button" variant={"secondary"} onClick={()=>{
                             props.exibirFormulario(false)
-                        }}>Voltar</Button>
+                            }}>Voltar</Button>
                     </Col>
                 </Row>
             </Form>
