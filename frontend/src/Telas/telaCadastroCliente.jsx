@@ -10,7 +10,7 @@ export default function TelaCadastroCliente(props){
             {
                 //dinâmica em que o usuário irá alternar entre o formulário e a visualização
                 //dos registros já cadastrados
-                exibirFomrulario?<FormCadCliente exibirFomrulario={setExibirFormulario}/>:<TabelaClientes exibirFomrulario={setExibirFormulario}/>
+                exibirFomrulario ? <FormCadCliente exibirFomrulario={setExibirFormulario}/>:<TabelaClientes exibirFomrulario={setExibirFormulario}/>
             }
         </Pagina>
     )

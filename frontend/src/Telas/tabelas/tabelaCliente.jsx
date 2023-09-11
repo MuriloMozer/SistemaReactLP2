@@ -4,7 +4,7 @@ export default function TabelaClientes(props){
     return(
            <Container>
                 <Button type='button' onClick={()=>{
-                    props.exibirFormulario(true);
+                    props.exibirFormulario(true)
                 }}>Novo Cliente</Button>
                 <Table striped bordered hover>
                 <thead>
