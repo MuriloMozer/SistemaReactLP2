@@ -3,22 +3,13 @@ import {Button, Container, Form, Row, Col, FloatingLabel} from "react-bootstrap"
 
 export default function FormCadCliente(props){
     //os atributos deste objeto cliente devem estar associados aos inputs do usuário
-    const estadoInicialCliente = {
-        cpf:'',
-        nome:'',
-        endereco:'',
-        numero:'',
-        bairro:'',
-        cidade:'',
-        uf:'',
-        cep:''
-    }
+    const estadoInicialCliente = props.clienteParaEdicao;
     const [cliente, setCliente]=useState(estadoInicialCliente);
     const [formValidado, setFormValidado] = useState(false);
 
     function manipularMudancas(e){ //'e' de event
         const componente = e.currentTarget;
-        setCliente({...cliente,[componente.name]:componente.value});
+        setCliente({...cliente,[componente.name]:componente.value});// '...' espalhar elementos em uma lista
     }
 
     function manipularSubmissao(e){
@@ -26,6 +17,27 @@ export default function FormCadCliente(props){
         if(form.checkValidity()){
             //todos os campos preenchidos
             //mandar os dados para o backend
+            if(!props.modoEdicao){
+                props.setListaClientes([...props.listaClientes,cliente]);
+            //let listaNova = props.listaClientes;
+            //listaNova.push(cliente)
+            //props.setListaCliente(listaNova); '...props.listaClientes' faz a mesma coisa do que essas três linhas
+            }
+            else{
+                //alterar os dados do cliente (filtra e adiciona)
+                props.setListaClientes([...props.listaClientes.filter(itemCliente=>itemCliente.cpf !== cliente.cpf),cliente]);
+                props.setmodoEdicao(false);
+                props.setClienteParaEdicao({
+                cpf:'',
+                nome:'',
+                endereco:'',
+                numero:'',
+                bairro:'',
+                cidade:'',
+                uf:'SP',
+                cep:''
+            });
+            }
             setCliente(estadoInicialCliente);
             setFormValidado(false);
         }
@@ -160,7 +172,7 @@ export default function FormCadCliente(props){
                 </Row>
                 <Row>
                     <Col md={6} offset={5} className="flex justify-content-end">
-                        <Button type="submit" variant={"primary"}>Cadastrar</Button>
+                        <Button type="submit" variant={"primary"}>{props.modoEdicao ? "Alterar":"Cadastrar"}</Button>
                     </Col>
                     <Col md={6} offset={5}>
                         <Button type="button" variant={"secondary"} onClick={()=>{
