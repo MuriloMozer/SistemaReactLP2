@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {Button, Container, Form, Row, Col, FloatingLabel} from "react-bootstrap";
 
 export default function FormCadCliente(props){
@@ -6,12 +6,22 @@ export default function FormCadCliente(props){
     const estadoInicialCliente = props.clienteParaEdicao;
     const [cliente, setCliente]=useState(estadoInicialCliente);
     const [formValidado, setFormValidado] = useState(false);
+    const [mensagemSucesso, setMensagemSucesso] = useState(null);
 
     function manipularMudancas(e){ //'e' de event
         const componente = e.currentTarget;
         setCliente({...cliente,[componente.name]:componente.value});// '...' espalhar elementos em uma lista
     }
 
+    useEffect(() => {
+        if (mensagemSucesso) {
+          const timer = setTimeout(() => {
+            setMensagemSucesso(null);
+          }, 3000);
+      
+          return () => clearTimeout(timer);
+        }
+    }, [mensagemSucesso]);
     function manipularSubmissao(e){
         const form = e.currentTarget;
         if(form.checkValidity()){
@@ -19,6 +29,7 @@ export default function FormCadCliente(props){
             //mandar os dados para o backend
             if(!props.modoEdicao){
                 props.setListaClientes([...props.listaClientes,cliente]);
+                setMensagemSucesso("Cliente cadastrado com sucesso!");
             //let listaNova = props.listaClientes;
             //listaNova.push(cliente)
             //props.setListaCliente(listaNova); '...props.listaClientes' faz a mesma coisa do que essas três linhas
@@ -37,6 +48,7 @@ export default function FormCadCliente(props){
                 uf:'SP',
                 cep:''
             });
+            setMensagemSucesso("Cliente editado com sucesso!");
             }
             setCliente(estadoInicialCliente);
             setFormValidado(false);
@@ -180,6 +192,7 @@ export default function FormCadCliente(props){
                             }}>Voltar</Button>
                     </Col>
                 </Row>
+                {mensagemSucesso && <div className="mensagem-sucesso">{mensagemSucesso}</div>}
             </Form>
         </Container>
     );

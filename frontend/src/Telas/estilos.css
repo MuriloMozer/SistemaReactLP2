@@ -1,0 +1,7 @@
+.mensagem-sucesso {
+    background-color: #4caf50; /* Cor de fundo verde */
+    color: #fff; /* Cor do texto branca */
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+  }

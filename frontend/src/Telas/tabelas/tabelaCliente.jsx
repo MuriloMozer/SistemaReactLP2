@@ -1,11 +1,22 @@
 import { Button, Container, Table } from 'react-bootstrap';
+import { useState, useEffect } from "react";
 
 export default function TabelaClientes(props){
+    const [mensagemSucesso, setMensagemSucesso] = useState(null);
+    useEffect(() => {
+        if (mensagemSucesso) {
+          const timer = setTimeout(() => {
+            setMensagemSucesso(null);
+          }, 3000);
+      
+          return () => clearTimeout(timer);
+        }
+    }, [mensagemSucesso]);
     function excluirCliente(cliente){
         if(window.confirm('Deseja realmente excluir este Cliente?'))
-        {props.setListaClientes(
-            props.listaClientes.filter((itemLista=>itemLista.cpf !== cliente.cpf))
-         );
+        {
+            props.setListaClientes(props.listaClientes.filter((itemLista=>itemLista.cpf !== cliente.cpf)));
+            setMensagemSucesso("Cliente excluído com sucesso!");
         }
     }
     function editarCliente(cliente){
@@ -65,6 +76,7 @@ export default function TabelaClientes(props){
                     }
                 </tbody>
             </Table>
+            {mensagemSucesso && <div className="mensagem-sucesso">{mensagemSucesso}</div>}
             </Container>
 
     );
