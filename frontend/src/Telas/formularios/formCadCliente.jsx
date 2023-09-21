@@ -26,7 +26,7 @@ export default function FormCadCliente(props){
             else{
                 //alterar os dados do cliente (filtra e adiciona)
                 props.setListaClientes([...props.listaClientes.filter(itemCliente=>itemCliente.cpf !== cliente.cpf),cliente]);
-                props.setmodoEdicao(false);
+                props.setModoEdicao(false);
                 props.setClienteParaEdicao({
                 cpf:'',
                 nome:'',
