@@ -3,7 +3,7 @@ import Pagina from "../Templates/Pagina";
 import FormCadProduto from "./formularios/formCadProduto";
 import TabelaProdutos from "./tabelas/tabelaProdutos";
 
-export default function TelaCadastroCliente(props){
+export default function TelaCadastroProduto(props){
     const [exibirFomrulario, setExibirFormulario] = useState(true);
     return(
         <Pagina>

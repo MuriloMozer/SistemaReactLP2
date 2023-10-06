@@ -11,8 +11,8 @@ export default function FormCadCategorias(props){
                             <Form.Select aria-label="Categorias">
                                 <option value="RouFem">Roupas Femininas</option>
                                 <option value="RouMasc" selected>Roupas Masculinas</option>
-                                <option value="RouInfant">Infantil</option>
-                                <option value="Mat-prima">Matéria-prima</option>
+                                <option value="RouInfant">Roupas Infantis</option>
+                                <option value="RouUni">Roupas Unissex</option>
                             </Form.Select>
                         </FloatingLabel>
                     </Form.Group>

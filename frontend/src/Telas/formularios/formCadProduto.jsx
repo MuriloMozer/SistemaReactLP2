@@ -31,6 +31,7 @@ export default function FormCadProduto(props){
                             <Form.Select aria-label="Genero das roupas">
                                 <option value="Masc" selected>Masculino</option>
                                 <option value="Fem">Feminino</option>
+                                <option value="Infant">Infantil</option>
                                 <option value="Uni">Unissex</option>
                             </Form.Select>
                         </FloatingLabel>
@@ -41,8 +42,7 @@ export default function FormCadProduto(props){
                         <FloatingLabel
                             controlId="floatingInput"
                             label="Marca"
-                            className="mb-3"
-                        >
+                            className="mb-3">
                             <Form.Control type="text" id="marca" name="marca" required/>
                         </FloatingLabel>
                         <Form.Control.Feedback type="invalid">Informe a marca do produto!</Form.Control.Feedback>
