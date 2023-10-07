@@ -1,7 +1,7 @@
 import TelaCadastroCliente from './Telas/telaCadastroCliente';
 import TelaCadastroProduto from './Telas/telaCadastroProduto';
 import TelaCadastroFornecedor from './Telas/telaCadastroFornecedor';
-//import TelaCadastroCategoria from './Telas/telaCadastroCategoria';
+import TelaCadastroCategoria from './Telas/telaCadastroCategoria';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import TelaMenu from './Telas/telaMenu';
 import Tela404 from './Telas/tela404';
@@ -17,8 +17,7 @@ function App() {
           <Route path='/clientes' element={<TelaCadastroCliente/>}/>
           <Route path='/produtos' element={<TelaCadastroProduto/>}/>
           <Route path='/fornecedores' element={<TelaCadastroFornecedor/>}/>
-          {//<Route path='/categorias' element={<TelaCadastroCategoria/>}/>
-          }
+          <Route path='/categorias' element={<TelaCadastroCategoria/>}/>
           {
             // .....demais telas de cadastro
           }

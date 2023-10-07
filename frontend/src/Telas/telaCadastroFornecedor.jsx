@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import TelaMensagem from "./telaMensagem";
 
 export default function TelaCadastroFornecedor(props){
-    const [exibirFomrulario, setExibirFormulario] = useState(true);
+    const [exibirFomrulario, setExibirFormulario] = useState(false);
     const [listaFornecedores, setListaFornecedores] = useState([]);
     const [fornecedorParaEdicao, setFornecedorParaEdicao] = useState({
         nome:'',

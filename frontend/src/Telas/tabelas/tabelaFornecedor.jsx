@@ -1,14 +1,9 @@
-import React from "react";
 import { Button, Container, Table } from "react-bootstrap";
 
 export default function TabelaFornecedores(props) {
   function excluirFornecedor(fornecedor) {
     if (window.confirm("Deseja realmente excluir este Fornecedor?")) {
-      props.setListaFornecedores(
-        props.listaFornecedores.filter(
-          (itemLista) => itemLista.duns !== fornecedor.duns
-        )
-      );
+      props.setListaFornecedores(props.listaFornecedores.filter((itemLista) => itemLista.duns !== fornecedor.duns));
       props.setMensagem("Fornecedor excluído com sucesso!");
       props.setTipoMensagem("danger");
       props.setMostrarMensagem(true);

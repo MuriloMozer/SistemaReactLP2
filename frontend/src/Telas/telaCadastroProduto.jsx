@@ -4,7 +4,7 @@ import FormCadProduto from "./formularios/formCadProduto";
 import TabelaProdutos from "./tabelas/tabelaProdutos";
 
 export default function TelaCadastroProduto(props){
-    const [exibirFomrulario, setExibirFormulario] = useState(true);
+    const [exibirFomrulario, setExibirFormulario] = useState(false);
     return(
         <Pagina>
             {
